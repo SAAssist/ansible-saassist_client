@@ -1,0 +1,14 @@
+galaxy_info:
+  author: "Kairo Araujo"
+  description: Install Security APAR Assistant Client
+  issue_tracker_url: https://github.com/saassist/saassist-client/issues
+  license: 'APACHE2'
+
+  min_ansible_version: 2.4
+
+  platforms:
+   - name: GenericUNIX
+     versions:
+     - any
+
+  galaxy_tags: ['saassist', 'APAR', 'client']

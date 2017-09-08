@@ -1,0 +1,9 @@
+---
+
+saassist_path: /opt/saassist/saassist-client
+saassist_tmp: /tmp
+saassist_protocol: http
+saassist_server: "0.0.0.0"
+saassist_server_http_port: 8000
+saassist_server_nfs_fs: /opt/saassist/saassist-server/data/repos
+saassist_client_file: /srv/myfiles/saassist-client-0.2.0.zip

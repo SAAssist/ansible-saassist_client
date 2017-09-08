@@ -1,0 +1,24 @@
+---
+
+- name: Create logical volume for saassist
+  aix_lvol:
+    vg: rootvg
+    lv: lvsaassist
+    size: 1G
+
+- name: Create file system for saassist
+  command: crfs -v jfs2 -A yes -m {{ saassist_path }} -d lvsaassist
+  args:
+    creates: "{{ saassist_path }}"
+
+- name: Mount file system for saassist
+  mount: name={{ saassist_path }} src=/dev/lvsaassist state=mounted fstype=jfs2
+
+
+- name: Send and uncompress Security APAR Assistant Client to server
+  unarchive:
+    src: /srv/myfiles/{{ saassist_client_file }}
+    dest: "{{ saassist_path }}"
+
+- name: Copy the saassist configuration file
+  template: src=client_config.j2 dest={{ saassist_path }}/client_config.j2
